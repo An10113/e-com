@@ -9,17 +9,14 @@ function rentbook(){
       <img class="book__img" src="${books[0].url}" alt="">
     </figure>
     <div class="book__title">
-      Crack the Coding Interview
+    ${books[0].title}
     </div>
     <div class="book__ratings">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star-half-alt"></i>
-    </div>
+  
+  
+      </div>
     <div class="book__price">
-      <span class="book__price--normal">$59.95</span> $14.95
+      <span class="book__price--normal">${books[0].originalPrice}$</span> ${books[0].salePrice}$
     </div>`
   }
   setTimeout(() => {
