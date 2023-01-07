@@ -2,7 +2,7 @@ function rentbook(){
     const bookswrap = document.querySelector('.books');
   
     const books = getBooks()
-  
+  console.log(' .books')
     bookswrap.innerHTML= 
     `<div class="book">
     <figure class="book__img--wrapper">
