@@ -1,24 +1,35 @@
 function rentbook(){
     const bookswrap = document.querySelector('.books');
-  
     const books = getBooks()
-  console.log(' .books')
-    bookswrap.innerHTML= 
-    `<div class="book">
-    <figure class="book__img--wrapper">
-      <img class="book__img" src="${books[0].url}" alt="">
-    </figure>
-    <div class="book__title">
-    ${books[0].title}
-    </div>
-    <div class="book__ratings">
-  
-  
+
+    const booksHTML = books.map (book => {  
+      return `<div class="book">
+      <figure class="book__img--wrapper">
+        <img class="book__img" src="${book.url}" alt="">
+      </figure>
+      <div class="book__title">
+        ${book.title}
       </div>
-    <div class="book__price">
-      <span class="book__price--normal">${books[0].originalPrice}$</span> ${books[0].salePrice}$
+      <div class="book__ratings">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+      </div>
+      <div class="book__price">
+        <span>${book.originalPrice.toFixed(2)}$</span>
+      </div>
     </div>`
+    }).join("");
+
+    bookswrap.innerHTML = booksHTML;
+
   }
+
+
+
+
   setTimeout(() => {
     rentbook()
     
