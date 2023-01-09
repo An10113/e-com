@@ -28,6 +28,7 @@ function rentbook(){
   }
 
   function filterbook(event){
+    rentbook.
     
   }
 
