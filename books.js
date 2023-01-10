@@ -1,6 +1,15 @@
-function rentbook(filter){
+let books 
+async function rentbook(filter){
     const bookswrap = document.querySelector('.books');
-    const books = getBooks()
+
+    bookswrap.classList += " books__loading" 
+    
+    if (!books){
+      books = await getBooks();
+    }
+
+
+    bookswrap.classList.remove('books__loading')
 
 
     if (filter === "LOW_TO_HIGH"){
@@ -66,14 +75,17 @@ function rentbook(filter){
   
   // FAKE DATA
   function getBooks() {
-    return [
-      {
-        id: 1,
-        title: "Crack the Coding Interview",
-        url: "assets/crack the coding interview.png",
-        originalPrice: 49.95,
-        salePrice: 14.95,
-        rating: 4.5,
+    return new Promise((resolve) => {
+     setTimeout(() => {
+      
+       resolve([
+         {
+           id: 1,
+           title: "Crack the Coding Interview",
+           url: "assets/crack the coding interview.png",
+           originalPrice: 49.95,
+           salePrice: 14.95,
+           rating: 4.5,
       },
       {
         id: 2,
@@ -155,6 +167,8 @@ function rentbook(filter){
         salePrice: null,
         rating: 4.5,
       },
-    ];
-  }
-  
+    ])
+  }, 1000);
+  })
+}
+
